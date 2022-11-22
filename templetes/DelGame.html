@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400|Playfair+Display:400,700,400italic|Libre+Baskerville:400,700,400italic|Muli:300,400|Open+Sans:400,300,700|Oswald:400,700|Raleway:400,100,300,700|Montserrat:400,700|Merriweather:400,300,300italic,400italic,700|Bree+Serif|Vollkorn:400italic,400,700|Abril+Fatface|Cardo:400,400italic);
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: -webkit-linear-gradient(to right, #dae2e2, #66bdbc);
+            background: linear-gradient(to right, #cad8d8, #66bdbc);
+            height: 500px;
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            position: relative;
+
+        }
+
+        .bottom-onehalf {
+            margin-top: 3px;
+            margin-bottom: 0.5cm;
+            margin-left: 4px;
+            padding: 12px 28px;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            background-color: #4c6762;
+        }
+
+        .tbr {
+            margin-top: 1px;
+            margin-bottom: 1px;
+
+            padding: 10px 24px;
+            font-size: 10px;
+            transition-duration: 0.4s;
+            background-color: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1;
+            margin-top: 0;
+            color: rgb(15, 11, 11);
+            display: inline-block;
+            position: relative;
+        }
+
+        .tera {
+            font-size: 4rem;
+            /* 117 / 18 = 6.5 */
+            margin-bottom: 0.25385rem;
+        }
+
+        .epsilon {
+            font-size: 1.16667rem;
+            /* 21 / 18 = 1.1667 */
+            margin-bottom: 1.41429rem;
+        }
+
+        .open-sans {
+            font-family: 'Open Sans';
+        }
+
+        .lato {
+            font-family: 'Lato'
+        }
+
+        .thin {
+            font-weight: 100;
+        }
+
+        .ls-large {
+            letter-spacing: 8px;
+        }
+
+        .ls-medium {
+            letter-spacing: 4px;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .bottom-onehalf:hover {
+            background-color: #a4ede1;
+            color: rgb(13, 79, 64);
+        }
+
+        table {
+            border: none;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            width: 50%;
+            table-layout: fixed;
+        }
+
+        table tr {
+            background: #ffffff;
+            padding: .25em;
+            border: none;
+        }
+
+        table tr:hover {
+            background: -webkit-linear-gradient(to right, #dae2e2, #66bdbc);
+            background: linear-gradient(to right, #cad8d8, #66bdbc);
+        }
+
+        table th,
+        table td {
+            padding: .600em;
+            text-align: center;
+        }
+    </style>
+    <title> Game Zone App </title>
+</head>
+
+<body>
+    <left>
+        <a href="{% url 'homepage' %}">
+            <button class="bottom-onehalf">HomePage</button>
+        </a>
+    </left>
+
+    <left>
+        <a href="{% url 'showGame' %}">
+            <button class="bottom-onehalf">Game Database</button>
+        </a>
+    </left>
+
+
+    <center>
+        <section data-description="Thin/Super bold/thin">
+            <h1 class="gamma lato thin uppercase ls-medium">
+                <span class="open-sans tera ls-large bold">Delete Game Record</span><br>
+            </h1>
+        </section>
+        </hr>
+
+        <form method="POST" action="/deletedGame/{{Game.game_id}}">
+            {% csrf_token%}
+            <table>
+                <tr>
+                    <td>Game ID</td>
+                    <td><input type="number" name="game_id" value="{{Game.game_id}}" class="tbr" readonly></td>
+                </tr>
+                <tr>
+                    <td>Publisher ID</td>
+                    <td><input type="number" name="pub_id" value="{{Game.pub_id}}" class="tbr" readonly></td>
+                </tr>
+                <tr>
+                    <td>Game Name</td>
+                    <td><input type="text" name="game_name" value="{{Game.game_name}}" class="tbr" readonly></td>
+                </tr>
+
+                <tr>
+                    <td>Genre</td>
+                    <td><input type="text" name="genre" value="{{Game.genre}}" class="tbr" readonly></td>
+                </tr>
+
+                <tr>
+                    <td>Release Date</td>
+                    <td><input type="text" name="release_date" value="{{Game.release_date}}" class="tbr" readonly></td>
+                </tr>
+
+                <tr>
+                    <td>Last Update</td>
+                    <td><input type="text" name="last_update" value="{{Game.last_update}}" class="tbr" readonly></td>
+                </tr>
+
+                <tr>
+                    <td>Total Players</td>
+                    <td><input type="number" name="total_players" value="{{Game.total_players}}" class="tbr" readonly></td>
+                </tr>
+
+                <tr>
+                    <td>Windows</td>
+                    <td><input type="radio" name="windows" value="TRUE" {% if Game.windows == "TRUE" %} checked {% endif %} readonly>TRUE </br>
+                        <input type="radio" name="windows" value="FALSE" {% if Game.windows == "FALSE" %} checked {% endif %} readonly>FALSE
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>macOS</td>
+                    <td><input type="radio" name="macOS" value="TRUE" {% if Game.macos == "TRUE" %} checked {% endif %} readonly>TRUE </br>
+                        <input type="radio" name="macOS" value="FALSE" {% if Game.macos == "FALSE" %} checked {% endif %} readonly>FALSE
+                    </td>
+                </tr>
+                <tr>
+                    <td>Linux</td>
+                    <td><input type="radio" name="linux" value='TRUE' {% if Game.linux == "TRUE" %} checked {% endif %} readonly>TRUE </br>
+                        <input type="radio" name="linux" value='FALSE' {% if Game.linux == "FALSE" %} checked {% endif %} readonly>FALSE
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="submit" value="Delete Record" class="bottom-onehalf"></td>
+                    <td>
+                        {% if messages %}
+                        {% for mess in messages %}
+                        <b style="color: rgb(15, 51, 47);">{{mess}}</b>
+                        {% endfor %}
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
