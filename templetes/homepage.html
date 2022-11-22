@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400|Playfair+Display:400,700,400italic|Libre+Baskerville:400,700,400italic|Muli:300,400|Open+Sans:400,300,700|Oswald:400,700|Raleway:400,100,300,700|Montserrat:400,700|Merriweather:400,300,300italic,400italic,700|Bree+Serif|Vollkorn:400italic,400,700|Abril+Fatface|Cardo:400,400italic);
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(https://download.unsplash.com/photo-1428550670225-15f007f6f1ba);
+            
+            height: 700px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1;
+            margin-top: 0;
+            color: rgb(15, 11, 11);
+            display: inline-block;
+            position: relative;
+        }
+
+        .tera {
+            font-size: 6rem;
+            margin-bottom: 0.25385rem;
+        }
+
+        .epsilon {
+            font-size: 1.16667rem;
+            margin-bottom: 1.41429rem;
+        }
+
+        .open-sans {
+            font-family: 'Open Sans';
+        }
+
+        .lato {
+            font-family: 'Lato'
+        }
+
+        .thin {
+            font-weight: 150;
+        }
+
+        .ls-xlarge {
+            letter-spacing: 12px;
+        }
+
+        .ls-medium {
+            letter-spacing: 3px;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        section {
+            height: 500px;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .wrapper {
+            max-width: 53.33rem;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+            transform: translateY(-78%);
+            top: 50%;
+            text-align: center;
+        }
+
+        section:before {
+            content: attr(data-description);
+            font-size: 0.9rem;
+            font-family: 'oswald';
+            color: #fff;
+            position: absolute;
+            z-index: 20;
+            left: 2rem;
+            top: 2rem;
+        }
+
+        @media screen and (min-width: 1440px) {
+            section {
+                height: 700px
+            }
+        }
+
+        .bottom-onehalf {
+            margin-bottom: 0.5cm;
+            padding: 12px 28px;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            background-color: #4c6762;
+        }
+
+        .bottom-onehalf:hover {
+            background-color: #79d1c2;
+            color: rgb(7, 85, 68);
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .md {
+            margin-bottom: 0px;
+        }
+    </style>
+    <title>Gaming Distribution</title>
+</head>
+
+<body>
+    <section>
+        <div class="wrapper">
+            <h1 class="gamma lato thin uppercase ls-xlarge">
+                <span class="open-sans tera ls-xlarge bold">Digital Video Game Distribution</span><br>
+                <span class="epsilon ls-medium bold">Using Python-Django and PostgreSQL</span>
+            </h1>
+        </div>
+        <div class="wrapper">
+
+            <form action="showGame">
+                <input type="submit" value="Game Database" class="bottom-onehalf">
+            </form>
+    
+            <form action="showPublisher">
+                <input type="submit" value="Publisher Database" class="bottom-onehalf">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

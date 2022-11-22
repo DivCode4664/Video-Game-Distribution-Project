@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<head>
+    <style>  
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400|Playfair+Display:400,700,400italic|Libre+Baskerville:400,700,400italic|Muli:300,400|Open+Sans:400,300,700|Oswald:400,700|Raleway:400,100,300,700|Montserrat:400,700|Merriweather:400,300,300italic,400italic,700|Bree+Serif|Vollkorn:400italic,400,700|Abril+Fatface|Cardo:400,400italic);
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: -webkit-linear-gradient(to right, #dae2e2, #66bdbc);
+            background: linear-gradient(to right, #cad8d8, #66bdbc);
+            height: 500px;
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            position: relative;
+
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .bottom-onehalf {
+            margin-top: 3px;
+            margin-bottom: 0.5cm;
+            margin-left: 4px;
+            padding: 12px 28px;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            background-color: #4c6762;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1;
+            margin-top: 0;
+            color: rgb(15, 11, 11);
+            display: inline-block;
+            position: relative;
+        }
+
+        .tera {
+            font-size: 4rem;
+            /* 117 / 18 = 6.5 */
+            margin-bottom: 0.25385rem;
+        }
+
+        .epsilon {
+            font-size: 1.16667rem;
+            /* 21 / 18 = 1.1667 */
+            margin-bottom: 1.41429rem;
+        }
+
+        .open-sans {
+            font-family: 'Open Sans';
+        }
+
+        .lato {
+            font-family: 'Lato'
+        }
+
+        .thin {
+            font-weight: 100;
+        }
+
+        .ls-large {
+            letter-spacing: 8px;
+        }
+
+        .ls-medium {
+            letter-spacing: 4px;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .bottom-onehalf:hover {
+            background-color: #a4ede1;
+            color: rgb(13, 79, 64);
+        }
+
+        table {
+            border: none;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            width: 80%;
+            table-layout: fixed;
+        }
+
+        table tr {
+            background: #ffffff;
+            padding: .25em;
+            border: none;
+        }
+
+        table tr:hover {
+            background: -webkit-linear-gradient(to right, #dae2e2, #66bdbc);
+            background: linear-gradient(to right, #cad8d8, #66bdbc);
+        }
+
+        table th,
+        table td {
+            padding: .600em;
+            text-align: center;
+        }
+    </style>  
+    <title> Online Gaming Distribution </title>
+</head>
+ 
+<body>
+    <left>
+        <a href="{% url 'homepage' %}">
+            <button class="bottom-onehalf">HomePage</button>
+        </a>
+    </left>
+   
+    <left>
+        <a href="{% url 'InsertPublisher' %}">
+            <button class="bottom-onehalf">Insert Publisher</button>
+        </a>
+    </left>
+ 
+    <center>
+        <section data-description="Thin/Super bold/thin">
+            <h1 class="gamma lato thin uppercase ls-medium">
+                <span class="open-sans tera ls-large bold">Publisher Records</span><br>
+            </h1>
+        </section>
+    </hr>
+    <form method="POST" action="SortPublisher">
+        {% csrf_token %}
+        <label for="Sort"></label>
+            <select id="Sort" name="Sort" class="bottom-onehalf">
+                <option value="pub_id">Publisher ID</option>
+                <option value="pub_name">Publisher Name</option>
+            </select>
+            <input type="submit" value="Sort" class="bottom-onehalf"/>
+    </form>
+</hr>
+    
+</hr>
+<a href="{% url 'QueryforPublisher' %}">
+    <button class="bottom-onehalf">Run Query</button>
+</a>
+        <table>
+            <tr>
+                <th> Publisher ID </th>
+                <th> Publisher Name </th>
+                <th>  </th>
+                <th>  </th>
+            </tr>
+            {% for result in data %}
+            <tr>
+                <td> {{result.pub_id}} </td>
+                <td> {{result.pub_name}} </td>
+                <td><a href="EditPublisher/{{result.pub_id}}" style="color: black; text-decoration: none;">Edit✍</a></td>
+                <td><a href="DelPublisher/{{result.pub_id}}" style="color: black; text-decoration: none;">Delete</a></td>
+            </tr>
+            {% endfor %}
+            
+        </table>
+    </center>
+</body>
+</html>

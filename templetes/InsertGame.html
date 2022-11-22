@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400|Playfair+Display:400,700,400italic|Libre+Baskerville:400,700,400italic|Muli:300,400|Open+Sans:400,300,700|Oswald:400,700|Raleway:400,100,300,700|Montserrat:400,700|Merriweather:400,300,300italic,400italic,700|Bree+Serif|Vollkorn:400italic,400,700|Abril+Fatface|Cardo:400,400italic);
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: -webkit-linear-gradient(to right, #dae2e2, #66bdbc);
+            background: linear-gradient(to right, #cad8d8, #66bdbc);
+            height: 500px;
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            position: relative;
+
+        }
+
+        .bottom-onehalf {
+            margin-top: 3px;
+            margin-bottom: 0.5cm;
+            margin-left: 4px;
+            padding: 12px 28px;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            background-color: #4c6762;
+        }
+
+        .tbr {
+            margin-top: 1px;
+            margin-bottom: 1px;
+            font-family: 'Lato';
+            padding: 10px 24px;
+            font-size: 14px;
+            transition-duration: 0.4s;
+            background-color: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1;
+            margin-top: 0;
+            color: rgb(15, 11, 11);
+            display: inline-block;
+            position: relative;
+        }
+
+        .tera {
+            font-size: 4rem;
+            /* 117 / 18 = 6.5 */
+            margin-bottom: 0.25385rem;
+        }
+
+        .epsilon {
+            font-size: 1.16667rem;
+            /* 21 / 18 = 1.1667 */
+            margin-bottom: 1.41429rem;
+        }
+
+        .open-sans {
+            font-family: 'Open Sans';
+        }
+
+        .lato {
+            font-family: 'Lato'
+        }
+
+        .thin {
+            font-weight: 100;
+        }
+
+        .ls-large {
+            letter-spacing: 8px;
+        }
+
+        .ls-medium {
+            letter-spacing: 4px;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .bold {
+            font-weight: 700;
+        }
+
+        .bottom-onehalf:hover {
+            background-color: #a4ede1;
+            color: rgb(13, 79, 64);
+        }
+
+        table {
+            border: none;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            width: 50%;
+            table-layout: fixed;
+        }
+
+        table tr {
+            background: #ffffff;
+            padding: .25em;
+            border: none;
+        }
+
+        table tr:hover {
+            background: -webkit-linear-gradient(to right, #dae2e2, #66bdbc);
+            background: linear-gradient(to right, #cad8d8, #66bdbc);
+        }
+
+        table th,
+        table td {
+            padding: .600em;
+            text-align: center;
+        }
+    </style>
+    <title> Gaming Distribution </title>
+</head>
+
+<body>
+    <left>
+        <a href="{% url 'homepage' %}">
+            <button class="bottom-onehalf">HomePage</button>
+        </a>
+    </left>
+
+    <left>
+        <a href="{% url 'showGame' %}">
+            <button class="bottom-onehalf">Game Database</button>
+        </a>
+    </left>
+
+    <center>
+        <section data-description="Thin/Super bold/thin">
+            <h1 class="gamma lato thin uppercase ls-medium">
+                <span class="open-sans tera ls-large bold">Insert Game</span><br>
+            </h1>
+        </section>
+        <hr />
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td> Game ID </td>
+                    <td><input type="number" placeholder="Enter Game ID" name="game_id" class="tbr"></td>
+                </tr>
+                <tr>
+                    <td> Publisher ID </td>
+                    <td><input type="number" placeholder="Enter Publisher ID" name="pub_id" class="tbr"></td>
+                </tr>
+                <tr>
+                    <td> Game Name </td>
+                    <td><input type="text" placeholder="Enter Game Name" name="game_name" class="tbr"></td>
+                </tr>
+                <tr>
+                    <td> Genre </td>
+                    <td><input type="radio" name="genre" value="Action" style="margin-right: 15px;"> Action </br>
+                        <input type="radio" name="genre" value="Survival" style="margin-right: 15px;"> Survival </br>
+                        <input type="radio" name="genre" value="Shooter" style="margin-right: 15px;">Shooter </br>
+                        <input type="radio" name="genre" value="FPS" style="margin-right: 15px;">FPS </br>
+                        <input type="radio" name="genre" value="FPS" style="margin-right: 15px;">Sandbox </br>
+                        <input type="radio" name="genre" value="RTS" style="margin-right: 15px;">RTS
+                    </td>
+                </tr>
+                <tr>
+                    <td> Release Date </td>
+                    <td><input type="date" name="release_date" class="tbr"></td>
+                </tr>
+                <tr>
+                    <td> Last Update </td>
+                    <td><input type="date" name="last_update" class="tbr"></td>
+                </tr>
+                <tr>
+                    <td> Total Players </td>
+                    <td><input type="number" placeholder="Enter Total Players" name="total_players" class="tbr"></td>
+                </tr>
+                <tr>
+                    <td> Windows </td>
+                    <td><input type="radio" name="windows" value="TRUE" style="margin-right: 14px;"> TRUE </br>
+                        <input type="radio" name="windows" value="FALSE" style="margin-right: 8px;">  FALSE
+                    </td>
+                </tr>
+                <tr>
+                    <td> macOS </td>
+                    <td><input type="radio" name="macos" value="TRUE" style="margin-right: 15px;"> TRUE </br>
+                        <input type="radio" name="macos" value="FALSE" style="margin-right: 15px;">FALSE
+                    </td>
+                </tr>
+                <tr>
+                    <td> Linux </td>
+                    <td><input type="radio" name="linux" value="TRUE" style="margin-right: 15px;"> TRUE </br>
+                        <input type="radio" name="linux" value="FALSE" style="margin-right: 15px;">FALSE
+                    </td>
+                </tr>
+                <tr>
+                    <td> <input type="submit" value="Insert" class="bottom-onehalf" /> </td>
+                    <td>
+                        {% if messages %}
+                        {% for mess in messages %}
+                        <b style="color: rgb(15, 51, 47);">{{mess}}</b>
+                        {% endfor %}
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
