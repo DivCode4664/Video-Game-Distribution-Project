@@ -1,7 +1,8 @@
 # Video-Game-Distribution-Project
 ########### Author ############# 
 
-Group: 4 
+Group : 4
+Section : 3
 Team ID: 3.13
 
 Divyesh Baravaliya
