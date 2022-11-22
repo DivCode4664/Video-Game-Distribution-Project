@@ -11,4 +11,5 @@ Dhruv Prajapati
 ############## Instructions #################
 
 Save the files as already given in the repo.
+
 Run command: python manage.py runserver
