@@ -19,7 +19,7 @@ jobs:
           
       - name: Install Sonar Scanner
         run: |
-          brew install sonar-scanner
+          npm install sonarqube-scanner -g  
 
       - name: Set up Python
         uses: actions/setup-python@v2
