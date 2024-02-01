@@ -13,11 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Sonar Scanner
+      - name: Install SonarQube
         run: |
-          echo "deb https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.6.0.39681.zip focal main" | sudo tee -a /etc/apt/sources.list
-          sudo apt-get update -y
-          sudo apt-get install -y sonar-scanner
+          docker run -d --name sonarqube -p 9000:9000 sonarqube:8.6.0-community
+
 
 
 
