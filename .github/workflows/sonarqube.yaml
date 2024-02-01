@@ -16,9 +16,10 @@ jobs:
       - name: Install SonarQube
         run: |
           docker run -d --name sonarqube -p 9000:9000 sonarqube:8.6.0-community
-
-
-
+          
+      - name: Install Sonar Scanner
+        run: |
+          brew install sonar-scanner
 
       - name: Set up Python
         uses: actions/setup-python@v2
