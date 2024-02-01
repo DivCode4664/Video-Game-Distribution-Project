@@ -15,9 +15,10 @@ jobs:
 
       - name: Install Sonar Scanner
         run: |
-          echo "deb https://dl.bintray.com/sonarsource/SonarQube trusty main" | sudo tee -a /etc/apt/sources.list
+          echo "deb https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.6.0.39681.zip focal main" | sudo tee -a /etc/apt/sources.list
           sudo apt-get update -y
           sudo apt-get install -y sonar-scanner
+
 
 
       - name: Set up Python
