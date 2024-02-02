@@ -30,12 +30,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
 
-      # - name: SonarQube Scan
-      #   run: |
-      #     sonar-scanner -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
