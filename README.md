@@ -1,8 +1,4 @@
 # Video-Game-Distribution-Project
-########### Author ############# 
-
-Divyesh Baravaliya
-Dhruv Prajapati
 
 ############## Instructions #################
 
